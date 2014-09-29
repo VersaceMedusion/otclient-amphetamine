@@ -6,8 +6,6 @@
             skelet was from candybot.
 ]]
 
-
-
 Amphetamine = {}
 Amphetamine.window = nil
 Amphetamine.options = {}

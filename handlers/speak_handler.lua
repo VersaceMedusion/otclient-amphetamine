@@ -14,10 +14,9 @@ SpeakHandler.settings = {
 	},
 	replyies = {
 
-
 	},
 	_callbacks = {
-		default = print"aaaa";
+		default = print;
 	},
 	_cache = {}
 }

@@ -1,0 +1,14 @@
+Module
+  name: otclient_amphetamine
+  description: Amphetamine player behaviors.
+  author: Ukzz (Chemik)
+  website: https://github.com/MedusaVersaion/otclient-amphetamine
+  version: 1.0
+
+  autoload: true
+  autoload-priority: 1000
+  sandbox: true
+  scripts: [ amphetamine ]
+
+  @onLoad: init()
+  @onUnload: terminate()

@@ -6,14 +6,16 @@
             skelet was from candybot.
 ]]
 
+
+
 Amphetamine = {}
 Amphetamine.window = nil
 Amphetamine.options = {}
 Amphetamine.defaultOptions = {}
 
 dofile('extensions/utils.lua')
-dofile('classes/creature.lua')
-dofile('classes/player.lua')
+dofile('classes/player_class.lua')
+dofile('handlers/speak_handler.lua')
 
 local enabled = false
 local writeDir = "/amphetamine"
@@ -25,10 +27,12 @@ function init()
     g_resources.makeDir(writeDir)
   end
   
+  SpeakHandler.init()
+  
   connect(g_game, {
     onGameStart = Amphetamine.enable,
-    onGameEnd = Amphetamine.disable
-    --onTalk = SpeakHandler.processhandler
+    onGameEnd = Amphetamine.disable,
+    onTalk = SpeakHandler.processhandler
   })
   
   if g_game.isOnline() then
@@ -39,10 +43,12 @@ end
 function terminate()
   pdmesg("Module amphetamine terminate")
   
+    SpeakHandler.terminate()
+  
   disconnect(g_game, {
     onGameStart = Amphetamine.enable,
-    onGameEnd = Amphetamine.disable
-    --onTalk = SpeakHandler.processhandler
+    onGameEnd = Amphetamine.disable,
+    onTalk = SpeakHandler.processhandler
   })
 
   if g_game.isOnline() then
